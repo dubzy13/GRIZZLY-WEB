@@ -31,24 +31,67 @@
     </style>
 </head>
 <body class="min-h-screen bg-black text-white">
+    <!-- Age Verification Overlay -->
+    <div id="ageVerification" class="fixed inset-0 bg-black z-[100] flex items-center justify-center">
+        <div class="max-w-md mx-auto px-6 text-center">
+            <!-- Logo -->
+            <div class="mb-8">
+                <img src="https://i.imgur.com/t2akA3H.png" alt="Grizzly Armament" class="h-24 sm:h-32 w-auto mx-auto" style="filter: brightness(1.2) contrast(1.15);">
+            </div>
+            
+            <!-- Warning Icon -->
+            <div class="mb-6">
+                <svg class="w-16 h-16 text-red-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">AGE VERIFICATION</h1>
+            
+            <!-- Divider -->
+            <div class="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
+            
+            <!-- Message -->
+            <p class="text-zinc-400 mb-8 text-sm md:text-base leading-relaxed">
+                This website contains information about firearms and related products. You must be at least 21 years of age to enter this site.
+            </p>
+            
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                <button onclick="confirmAge(true)" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 text-lg tracking-widest transition-colors">
+                    I AM 21 OR OLDER
+                </button>
+                <button onclick="confirmAge(false)" class="flex-1 border-2 border-zinc-700 hover:border-red-600 text-zinc-300 hover:text-white font-bold py-4 px-8 text-lg tracking-widest transition-colors">
+                    EXIT
+                </button>
+            </div>
+            
+            <!-- Legal Notice -->
+            <p class="text-zinc-600 text-xs leading-relaxed">
+                By entering this website, you certify that you are of legal age to purchase firearms in your state of residence and that you are legally allowed to possess firearms.
+            </p>
+        </div>
+    </div>
+
     <!-- Top Bar -->
     <div class="bg-zinc-900 border-b border-zinc-800 py-3">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:justify-between items-center text-sm font-bold text-zinc-300 gap-2">
-            <div class="flex flex-col md:flex-row md:space-x-6 text-center md:text-left">
-                <span class="tracking-wide">CONTACT: (801) 810-7098</span>
-                <span class="hidden md:inline">|</span>
-                <span class="tracking-wide">KARL@GRIZZLYARMAMENT.COM</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row md:justify-between items-center text-xs sm:text-sm font-bold text-zinc-300 gap-2">
+            <div class="flex flex-col sm:flex-row sm:space-x-4 md:space-x-6 text-center gap-1 sm:gap-0">
+                <a href="tel:8018107098" class="tracking-wide hover:text-red-500 transition-colors">CONTACT: (801) 810-7098</a>
+                <span class="hidden sm:inline">|</span>
+                <a href="mailto:KARL@GRIZZLYARMAMENT.COM" class="tracking-wide hover:text-red-500 transition-colors break-all sm:break-normal">KARL@GRIZZLYARMAMENT.COM</a>
             </div>
         </div>
     </div>
 
     <!-- Main Header -->
     <header class="border-b border-zinc-800 bg-black sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <button onclick="showPage('home')" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-                    <img src="https://i.imgur.com/t2akA3H.png" alt="Grizzly Armament Logo" class="h-20 w-auto object-contain cursor-pointer" style="filter: brightness(1.2) contrast(1.15); mix-blend-mode: screen;">
+                    <img src="https://i.imgur.com/t2akA3H.png" alt="Grizzly Armament Logo" class="h-14 sm:h-16 md:h-20 w-auto object-contain cursor-pointer" style="filter: brightness(1.2) contrast(1.15); mix-blend-mode: screen;">
                 </button>
 
                 <!-- Desktop Navigation -->
@@ -96,7 +139,7 @@
                     <!-- Coming Soon Box with Hover Effect - 4x Bigger -->
                     <div class="mb-12">
                         <div class="coming-soon-box">
-                            <span class="text-red-500 text-4xl md:text-6xl font-bold tracking-widest">COMING SOON</span>
+                            <span class="text-red-500 text-3xl sm:text-4xl md:text-6xl font-bold tracking-widest">COMING SOON</span>
                         </div>
                     </div>
 
@@ -106,14 +149,24 @@
                     </div>
 
                     <!-- Image Caption -->
-                    <div class="max-w-2xl mx-auto mb-12 text-center">
-                        <p class="text-zinc-400 italic text-sm md:text-base leading-relaxed border-l-4 border-red-600 pl-6 py-3 bg-zinc-900 bg-opacity-50">
+                    <div class="max-w-2xl mx-auto mb-12 text-center px-4">
+                        <p class="text-zinc-400 italic text-xs sm:text-sm md:text-base leading-relaxed border-l-4 border-red-600 pl-4 sm:pl-6 py-3 bg-zinc-900 bg-opacity-50">
                             This was Heinz Augat's pistol and was serial number 0. This is not for sale but shows the dedication and beginning of this platform.
                         </p>
                     </div>
 
+                    <!-- Promotional Text -->
+                    <div class="max-w-4xl mx-auto mb-8 text-center px-4">
+                        <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
+                            Okay... we may have a few on hand
+                        </h3>
+                        <p class="text-lg sm:text-xl text-red-600 font-semibold">
+                            for your magnum powered needs
+                        </p>
+                    </div>
+
                     <!-- Featured Products -->
-                    <div class="grid md:grid-cols-3 gap-8 mb-12 max-w-6xl mx-auto">
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 max-w-6xl mx-auto px-4">
                         <!-- MK1 -->
                         <div class="bg-zinc-900 border border-zinc-800 hover:border-red-600 transition-all duration-300 group">
                             <div class="aspect-square bg-black flex items-center justify-center p-6 border-b border-zinc-800">
@@ -126,13 +179,13 @@
                                     Comes with a gold plated trigger and features a military professionally done parkerized finish. Made for the magnum shooter looking for a rugged yet classy look.
                                 </p>
                                 <div class="border-2 border-red-600 px-6 py-3 mb-4 text-center">
-                                    <span class="text-red-600 font-bold text-lg tracking-widest">CALL FOR PRICING</span>
+                                    <span class="text-red-600 font-bold text-base sm:text-lg tracking-widest">CALL FOR PRICING</span>
                                 </div>
-                                <button onclick="window.location.href='tel:8018107098'" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 transition-colors mb-2">
-                                    📞 (801) 810-7098
+                                <button onclick="window.location.href='tel:8018107098'" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 sm:py-3 px-3 sm:px-4 transition-colors mb-2 text-sm sm:text-base">
+                                    📞 <span class="hidden sm:inline">(801) 810-7098</span><span class="sm:hidden">CALL NOW</span>
                                 </button>
-                                <button onclick="window.location.href='mailto:KARL@GRIZZLYARMAMENT.COM'" class="w-full bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-3 px-4 transition-colors">
-                                    ✉️ KARL@GRIZZLYARMAMENT.COM
+                                <button onclick="window.location.href='mailto:KARL@GRIZZLYARMAMENT.COM'" class="w-full bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-2.5 sm:py-3 px-3 sm:px-4 transition-colors text-xs sm:text-sm">
+                                    ✉️ <span class="hidden md:inline">KARL@GRIZZLYARMAMENT.COM</span><span class="md:hidden">EMAIL US</span>
                                 </button>
                             </div>
                         </div>
@@ -149,13 +202,13 @@
                                     Features wooly mammoth tusk grips. All original finish, never been in circulation. Comes with professionally engineered muzzle brake to reduce felt recoil while giving a beautiful aggressive look.
                                 </p>
                                 <div class="border-2 border-red-600 px-6 py-3 mb-4 text-center">
-                                    <span class="text-red-600 font-bold text-lg tracking-widest">CALL FOR PRICING</span>
+                                    <span class="text-red-600 font-bold text-base sm:text-lg tracking-widest">CALL FOR PRICING</span>
                                 </div>
-                                <button onclick="window.location.href='tel:8018107098'" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 transition-colors mb-2">
-                                    📞 (801) 810-7098
+                                <button onclick="window.location.href='tel:8018107098'" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 sm:py-3 px-3 sm:px-4 transition-colors mb-2 text-sm sm:text-base">
+                                    📞 <span class="hidden sm:inline">(801) 810-7098</span><span class="sm:hidden">CALL NOW</span>
                                 </button>
-                                <button onclick="window.location.href='mailto:KARL@GRIZZLYARMAMENT.COM'" class="w-full bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-3 px-4 transition-colors">
-                                    ✉️ KARL@GRIZZLYARMAMENT.COM
+                                <button onclick="window.location.href='mailto:KARL@GRIZZLYARMAMENT.COM'" class="w-full bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-2.5 sm:py-3 px-3 sm:px-4 transition-colors text-xs sm:text-sm">
+                                    ✉️ <span class="hidden md:inline">KARL@GRIZZLYARMAMENT.COM</span><span class="md:hidden">EMAIL US</span>
                                 </button>
                             </div>
                         </div>
@@ -172,20 +225,20 @@
                                     Features wooly mammoth tusk grips. All original finish, never been in circulation. Comes with professionally engineered muzzle brake to reduce felt recoil while giving a beautiful aggressive look.
                                 </p>
                                 <div class="border-2 border-red-600 px-6 py-3 mb-4 text-center">
-                                    <span class="text-red-600 font-bold text-lg tracking-widest">CALL FOR PRICING</span>
+                                    <span class="text-red-600 font-bold text-base sm:text-lg tracking-widest">CALL FOR PRICING</span>
                                 </div>
-                                <button onclick="window.location.href='tel:8018107098'" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 transition-colors mb-2">
-                                    📞 (801) 810-7098
+                                <button onclick="window.location.href='tel:8018107098'" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 sm:py-3 px-3 sm:px-4 transition-colors mb-2 text-sm sm:text-base">
+                                    📞 <span class="hidden sm:inline">(801) 810-7098</span><span class="sm:hidden">CALL NOW</span>
                                 </button>
-                                <button onclick="window.location.href='mailto:KARL@GRIZZLYARMAMENT.COM'" class="w-full bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-3 px-4 transition-colors">
-                                    ✉️ KARL@GRIZZLYARMAMENT.COM
+                                <button onclick="window.location.href='mailto:KARL@GRIZZLYARMAMENT.COM'" class="w-full bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-2.5 sm:py-3 px-3 sm:px-4 transition-colors text-xs sm:text-sm">
+                                    ✉️ <span class="hidden md:inline">KARL@GRIZZLYARMAMENT.COM</span><span class="md:hidden">EMAIL US</span>
                                 </button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Main Headline -->
-                    <h2 class="text-4xl md:text-5xl font-bold mb-8 tracking-tight leading-tight">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 tracking-tight leading-tight">
                         THE LEGENDARY GRIZZLY<br>
                         <span class="text-red-600">PISTOLS AND BIG BORES</span><br>
                         ARE BACK
@@ -193,11 +246,11 @@
                     
                     <div class="w-24 h-1 bg-red-600 mx-auto mb-8"></div>
 
-                    <p class="text-xl md:text-2xl text-zinc-400 mb-4 font-light">
+                    <p class="text-lg sm:text-xl md:text-2xl text-zinc-400 mb-4 font-light">
                         ALL ORIGINAL PARTS THAT WERE BORN HERE IN UTAH
                     </p>
                     
-                    <p class="text-base text-zinc-500 mb-12 max-w-2xl mx-auto">
+                    <p class="text-sm sm:text-base text-zinc-500 mb-12 max-w-2xl mx-auto px-4">
                         YOU HAVE ASKED FOR IT AND IT IS BACK. YOU'RE WELCOME.
                     </p>
 
@@ -1236,6 +1289,25 @@
     </footer>
 
     <script>
+        // Age Verification
+        function confirmAge(isOfAge) {
+            if (isOfAge) {
+                // Store verification in sessionStorage (lasts for browser session)
+                sessionStorage.setItem('ageVerified', 'true');
+                document.getElementById('ageVerification').style.display = 'none';
+            } else {
+                // Redirect to a safe page if user is under 21
+                window.location.href = 'https://www.google.com';
+            }
+        }
+
+        // Check if user has already verified age in this session
+        window.addEventListener('DOMContentLoaded', function() {
+            if (sessionStorage.getItem('ageVerified') === 'true') {
+                document.getElementById('ageVerification').style.display = 'none';
+            }
+        });
+
         // Page Navigation
         function showPage(pageId) {
             // Hide all pages
