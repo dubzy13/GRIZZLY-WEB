@@ -17,6 +17,17 @@
         .page.active { display: block; }
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 100; overflow-y: auto; }
         .modal.active { display: block; }
+        .coming-soon-box {
+            display: inline-block;
+            border: 3px solid #dc2626;
+            padding: 3rem 6rem;
+            transition: all 0.3s ease;
+        }
+        .coming-soon-box:hover {
+            background-color: #dc2626;
+            box-shadow: 0 0 30px rgba(220, 38, 38, 0.6);
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body class="min-h-screen bg-black text-white">
@@ -85,21 +96,16 @@
 
             <div class="relative max-w-7xl mx-auto px-6 py-32 md:py-48">
                 <div class="max-w-4xl mx-auto text-center">
-                    <!-- Grizzly Image Above Coming Soon -->
+                    <!-- Coming Soon Box with Hover Effect - 4x Bigger -->
                     <div class="mb-12">
-                        <img src="https://i.imgur.com/ZUYHkuZ.png" alt="Grizzly Armament" class="w-full max-w-2xl mx-auto h-auto">
+                        <div class="coming-soon-box">
+                            <span class="text-red-500 text-4xl md:text-6xl font-bold tracking-widest">COMING SOON</span>
+                        </div>
                     </div>
 
-                    <!-- Coming Soon Logo -->
-                    <div class="inline-block mb-12">
-                        <div class="relative">
-                            <h1 class="text-7xl md:text-9xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-red-600 via-red-500 to-red-900" style="text-shadow: 0 0 40px rgba(220, 38, 38, 0.5), 0 0 80px rgba(220, 38, 38, 0.3); -webkit-text-stroke: 1px rgba(220, 38, 38, 0.3);">
-                                COMING SOON
-                            </h1>
-                            <div class="absolute inset-0 text-7xl md:text-9xl font-bold tracking-tight text-black opacity-50 blur-sm" style="transform: translateY(4px);">
-                                COMING SOON
-                            </div>
-                        </div>
+                    <!-- Grizzly Image -->
+                    <div class="mb-12">
+                        <img src="https://i.imgur.com/ZUYHkuZ.png" alt="Grizzly Armament" class="w-full max-w-2xl mx-auto h-auto">
                     </div>
 
                     <!-- Main Headline -->
