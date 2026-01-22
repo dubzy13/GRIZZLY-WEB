@@ -17,17 +17,6 @@
         .page.active { display: block; }
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 100; overflow-y: auto; }
         .modal.active { display: block; }
-        .coming-soon-box {
-            display: inline-block;
-            border: 3px solid #dc2626;
-            padding: 3rem 6rem;
-            transition: all 0.3s ease;
-        }
-        .coming-soon-box:hover {
-            background-color: #dc2626;
-            box-shadow: 0 0 30px rgba(220, 38, 38, 0.6);
-            transform: scale(1.05);
-        }
     </style>
 </head>
 <body class="min-h-screen bg-black text-white">
@@ -134,18 +123,77 @@
             <div class="absolute inset-0 bg-gradient-to-b from-zinc-900 via-black to-black opacity-95"></div>
             <div class="absolute inset-0 opacity-5 texture-overlay"></div>
 
-            <div class="relative max-w-7xl mx-auto px-6 py-16 md:py-24">
-                <div class="max-w-4xl mx-auto text-center">
-                    <!-- Coming Soon Box with Hover Effect - 4x Bigger -->
-                    <div class="mb-12">
-                        <div class="coming-soon-box">
-                            <span class="text-red-500 text-3xl sm:text-4xl md:text-6xl font-bold tracking-widest">COMING SOON</span>
+            <div class="relative max-w-7xl mx-auto px-6 py-20 md:py-32">
+                <!-- Hero Section: Cowboy Killer Edition -->
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
+                    <!-- Left: Image -->
+                    <div class="order-2 lg:order-1">
+                        <div class="relative group">
+                            <!-- Main Image Container -->
+                            <div class="relative bg-zinc-900 border-2 border-zinc-800 overflow-hidden">
+                                <img src="./Grizzly_Cowboy-Killer-Special.png" alt="Cowboy Killer Edition - Color Case Hardened Grizzly Pistols" class="w-full h-auto">
+
+                                <!-- Subtle hover overlay -->
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+
+                            <!-- Decorative corner accents -->
+                            <div class="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-red-600"></div>
+                            <div class="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-red-600"></div>
                         </div>
                     </div>
 
+                    <!-- Right: Content -->
+                    <div class="order-1 lg:order-2 text-center lg:text-left">
+                        <!-- Badge -->
+                        <div class="inline-block border border-red-600 px-4 py-1 mb-6">
+                            <span class="text-red-500 text-xs font-bold tracking-[0.3em] font-mono">LIMITED EDITION</span>
+                        </div>
+
+                        <!-- Headline -->
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 tracking-tight leading-tight">
+                            COWBOY KILLER<br>
+                            <span class="text-red-600">EDITION</span>
+                        </h1>
+
+                        <!-- Divider -->
+                        <div class="w-24 h-1 bg-red-600 mb-6 mx-auto lg:mx-0"></div>
+
+                        <!-- Subtitle -->
+                        <p class="text-xl sm:text-2xl text-zinc-300 mb-4 font-light">
+                            Color Case Hardened — Mark I · Mark IV · Mark V
+                        </p>
+
+                        <!-- Description -->
+                        <p class="text-zinc-400 text-base sm:text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+                            Some men collect watches. Others collect legacy. The Cowboy Killer Edition represents Grizzly Armament's mastery of traditional color case hardening—each firearm a singular artifact where metallurgical discipline meets functional artistry, worthy of the hand that understands the weight of what it carries.
+                        </p>
+
+                        <!-- CTA -->
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6">
+                            <button onclick="window.location.href='tel:8018107098'" class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 transition-colors tracking-widest">
+                                📞 RESERVE YOURS
+                            </button>
+                            <button onclick="window.location.href='mailto:KARL@GRIZZLYARMAMENT.COM'" class="border-2 border-zinc-700 hover:border-red-600 text-zinc-300 hover:text-white font-bold py-4 px-8 transition-colors tracking-widest">
+                                INQUIRE NOW
+                            </button>
+                        </div>
+
+                        <!-- Pre-sale Notice -->
+                        <div class="inline-flex items-center gap-2 text-zinc-500 text-sm">
+                            <svg class="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="font-semibold tracking-wide">PRE-SALE NOW OPEN | LIMITED AVAILABILITY</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legacy Section -->
+                <div class="text-center max-w-4xl mx-auto">
                     <!-- Grizzly Image -->
                     <div class="mb-8">
-                        <img src="https://i.imgur.com/QMPNyYr.png" alt="Grizzly Armament" class="w-full max-w-4xl mx-auto h-auto">
+                        <img src="https://i.imgur.com/QMPNyYr.png" alt="Grizzly Armament Serial Number 0" class="w-full max-w-4xl mx-auto h-auto">
                     </div>
 
                     <!-- Image Caption -->
@@ -154,6 +202,7 @@
                             This was Heinz Augat's pistol and was serial number 0. This is not for sale but shows the dedication and beginning of this platform.
                         </p>
                     </div>
+                </div>
 
                     <!-- Promotional Text -->
                     <div class="max-w-4xl mx-auto mb-8 text-center px-4">
@@ -1244,8 +1293,8 @@
                     <!-- Karl Augat - CEO -->
                     <div class="grid md:grid-cols-2 gap-12 items-center border-b border-zinc-800 pb-16">
                         <div class="order-2 md:order-1">
-                            <div class="bg-zinc-900 aspect-square flex items-center justify-center border border-zinc-800">
-                                <img src="https://i.imgur.com/81zmLXA.jpeg" alt="Karl Augat - CEO" class="w-full h-full object-cover">
+                            <div class="bg-zinc-900 aspect-video flex items-center justify-center border border-zinc-800 overflow-hidden">
+                                <img src="./Karl_Desesrt-Scene.png" alt="Karl Augat - CEO, Grizzly Armament" class="w-full h-full object-cover">
                             </div>
                         </div>
                         <div class="order-1 md:order-2">

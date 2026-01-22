@@ -1,0 +1,279 @@
+<!-- VIDEO CAROUSEL SECTION - Insert after featured products (around line 238) -->
+<div class="relative bg-black py-20 md:py-28 overflow-hidden">
+    <!-- Tactical Grid Background -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(220, 38, 38, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(220, 38, 38, 0.3) 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+    <!-- Red Glow Accent -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-red-600 opacity-5 blur-[120px] pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+        <!-- Section Header with Tactical Styling -->
+        <div class="text-center mb-12 md:mb-16">
+            <!-- Serial Number Accent -->
+            <div class="inline-block border border-red-600 px-4 py-1 mb-4">
+                <span class="text-red-500 text-xs font-bold tracking-[0.3em] font-mono">MEDIA ARSENAL</span>
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+                SEE THE <span class="text-red-600">GRIZZLY</span> IN ACTION
+            </h2>
+
+            <div class="w-24 h-1 bg-red-600 mx-auto mb-4"></div>
+
+            <p class="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto">
+                Watch expert reviews, historical breakdowns, and range demonstrations
+            </p>
+        </div>
+
+        <!-- Carousel Container -->
+        <div class="relative max-w-5xl mx-auto">
+            <!-- Main Video Display -->
+            <div class="relative bg-zinc-900 border-2 border-zinc-800 overflow-hidden group">
+                <!-- Tactical Corner Accents -->
+                <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-red-600 z-10"></div>
+                <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-red-600 z-10"></div>
+                <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-red-600 z-10"></div>
+                <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-red-600 z-10"></div>
+
+                <!-- Video Container (16:9 Aspect Ratio) -->
+                <div class="aspect-video bg-black relative overflow-hidden" id="videoContainer">
+                    <!-- Video iframes will be injected here -->
+                </div>
+
+                <!-- Video Info Overlay -->
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/90 to-transparent p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <div class="flex items-start justify-between gap-4">
+                        <div class="flex-1">
+                            <h3 class="text-white font-bold text-lg sm:text-xl mb-1" id="currentVideoTitle">Loading...</h3>
+                            <p class="text-zinc-400 text-sm" id="currentVideoDescription">Please wait...</p>
+                        </div>
+                        <!-- Ammo Counter Style Index -->
+                        <div class="bg-zinc-800 border border-red-600 px-3 py-1 flex items-center gap-2">
+                            <span class="text-red-500 font-mono text-xs font-bold" id="videoCounter">1/3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Controls - Tactical Style -->
+            <div class="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between px-4 pointer-events-none">
+                <button
+                    onclick="previousVideo()"
+                    class="pointer-events-auto w-12 h-12 sm:w-14 sm:h-14 bg-black/80 border-2 border-zinc-700 hover:border-red-600 flex items-center justify-center transition-all duration-200 group -translate-x-6 sm:-translate-x-8 hover:bg-red-600"
+                    aria-label="Previous video">
+                    <svg class="w-6 h-6 text-zinc-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button
+                    onclick="nextVideo()"
+                    class="pointer-events-auto w-12 h-12 sm:w-14 sm:h-14 bg-black/80 border-2 border-zinc-700 hover:border-red-600 flex items-center justify-center transition-all duration-200 group translate-x-6 sm:translate-x-8 hover:bg-red-600"
+                    aria-label="Next video">
+                    <svg class="w-6 h-6 text-zinc-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Thumbnail Navigation - Ammo Belt Style -->
+            <div class="grid grid-cols-3 gap-3 sm:gap-4 mt-6 sm:mt-8">
+                <!-- Thumbnails will be generated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Watch on YouTube Link -->
+        <div class="text-center mt-8">
+            <a href="#" id="youtubeLink" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-zinc-400 hover:text-red-500 transition-colors text-sm font-medium tracking-wide group">
+                <span>WATCH ON YOUTUBE</span>
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Video Carousel JavaScript -->
+<script>
+    // Video data array
+    const videos = [
+        {
+            id: 'rccDTxeJaRM',
+            title: 'Grizzly Win Mag - The Ultimate Big Bore Pistol',
+            description: 'In-depth look at the legendary Grizzly Win Mag pistol platform',
+            thumbnail: 'https://img.youtube.com/vi/rccDTxeJaRM/maxresdefault.jpg'
+        },
+        {
+            id: 'Gkx010Lfjxk',
+            title: 'Grizzly .45 Win Mag Range Review',
+            description: 'Expert analysis and range demonstration of the .45 Win Mag variant',
+            thumbnail: 'https://img.youtube.com/vi/Gkx010Lfjxk/maxresdefault.jpg'
+        },
+        {
+            id: 'ey0oVyrcvRg',
+            title: 'Grizzly Armament Historical Overview',
+            description: 'The complete history and evolution of Grizzly firearms',
+            thumbnail: 'https://img.youtube.com/vi/ey0oVyrcvRg/maxresdefault.jpg'
+        }
+    ];
+
+    let currentVideoIndex = 0;
+    let players = [];
+
+    // Initialize YouTube IFrame API
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // YouTube API Ready callback
+    function onYouTubeIframeAPIReady() {
+        const container = document.getElementById('videoContainer');
+
+        // Create iframe placeholders for all videos
+        videos.forEach((video, index) => {
+            const div = document.createElement('div');
+            div.id = `player-${index}`;
+            div.className = index === 0 ? 'video-frame active' : 'video-frame';
+            div.style.display = index === 0 ? 'block' : 'none';
+            container.appendChild(div);
+
+            // Create YouTube player
+            players[index] = new YT.Player(`player-${index}`, {
+                videoId: video.id,
+                width: '100%',
+                height: '100%',
+                playerVars: {
+                    autoplay: 0,
+                    controls: 1,
+                    modestbranding: 1,
+                    rel: 0,
+                    showinfo: 0
+                }
+            });
+        });
+
+        // Generate thumbnails
+        generateThumbnails();
+        updateVideoInfo();
+    }
+
+    function generateThumbnails() {
+        const thumbnailContainer = document.querySelector('.grid.grid-cols-3');
+        thumbnailContainer.innerHTML = '';
+
+        videos.forEach((video, index) => {
+            const thumbDiv = document.createElement('div');
+            thumbDiv.className = 'relative group cursor-pointer overflow-hidden bg-zinc-900 border-2 transition-all duration-300';
+            thumbDiv.className += index === currentVideoIndex ? ' border-red-600' : ' border-zinc-800 hover:border-zinc-600';
+            thumbDiv.onclick = () => goToVideo(index);
+
+            thumbDiv.innerHTML = `
+                <!-- Thumbnail Image -->
+                <div class="aspect-video bg-black relative overflow-hidden">
+                    <img src="${video.thumbnail}" alt="${video.title}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy">
+
+                    <!-- Play Icon Overlay -->
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors flex items-center justify-center">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-red-600/90 group-hover:bg-red-600 flex items-center justify-center transition-all transform group-hover:scale-110">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Active Indicator -->
+                    ${index === currentVideoIndex ? '<div class="absolute top-2 right-2 w-2 h-2 bg-red-600 rounded-full animate-pulse"></div>' : ''}
+                </div>
+
+                <!-- Thumbnail Info -->
+                <div class="p-3 bg-zinc-900">
+                    <div class="flex items-center gap-2">
+                        <span class="text-red-500 font-mono text-xs font-bold">${String(index + 1).padStart(2, '0')}</span>
+                        <h4 class="text-white text-xs sm:text-sm font-semibold truncate flex-1">${video.title.split('-')[0].trim()}</h4>
+                    </div>
+                </div>
+            `;
+
+            thumbnailContainer.appendChild(thumbDiv);
+        });
+    }
+
+    function updateVideoInfo() {
+        const video = videos[currentVideoIndex];
+        document.getElementById('currentVideoTitle').textContent = video.title;
+        document.getElementById('currentVideoDescription').textContent = video.description;
+        document.getElementById('videoCounter').textContent = `${currentVideoIndex + 1}/3`;
+        document.getElementById('youtubeLink').href = `https://www.youtube.com/watch?v=${video.id}`;
+    }
+
+    function goToVideo(index) {
+        if (index === currentVideoIndex) return;
+
+        // Pause current video
+        if (players[currentVideoIndex] && players[currentVideoIndex].pauseVideo) {
+            players[currentVideoIndex].pauseVideo();
+        }
+
+        // Hide current video frame
+        document.getElementById(`player-${currentVideoIndex}`).style.display = 'none';
+
+        // Update index
+        currentVideoIndex = index;
+
+        // Show new video frame
+        document.getElementById(`player-${currentVideoIndex}`).style.display = 'block';
+
+        // Update UI
+        updateVideoInfo();
+        generateThumbnails();
+    }
+
+    function nextVideo() {
+        const nextIndex = (currentVideoIndex + 1) % videos.length;
+        goToVideo(nextIndex);
+    }
+
+    function previousVideo() {
+        const prevIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+        goToVideo(prevIndex);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            previousVideo();
+        } else if (e.key === 'ArrowRight') {
+            nextVideo();
+        }
+    });
+</script>
+
+<style>
+    /* Additional carousel styles */
+    .video-frame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .video-frame.active {
+        position: relative;
+    }
+
+    /* Smooth transitions for video switching */
+    #videoContainer {
+        position: relative;
+    }
+
+    /* Ensure YouTube iframes are responsive */
+    #videoContainer iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>
