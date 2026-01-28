@@ -129,12 +129,31 @@
                     <!-- Left: Image -->
                     <div class="order-2 lg:order-1">
                         <div class="relative group">
-                            <!-- Main Image Container -->
+                            <!-- Main Video Container -->
                             <div class="relative bg-zinc-900 border-2 border-zinc-800 overflow-hidden">
-                                <img src="./public/Grizzly_Cowboy-Killer-Special.png" alt="Cowboy Killer Edition - Color Case Hardened Grizzly Pistols" class="w-full h-auto">
+                                <video id="hero-video" src="./public/Grizzly_Cowboy-Killer-Special.mp4" poster="./public/Grizzly_Cowboy-Killer-Special.png" autoplay muted playsinline controls class="w-full h-auto">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <script>
+                                    (function() {
+                                        var video = document.getElementById('hero-video');
+                                        video.removeAttribute('controls');
+
+                                        video.addEventListener('mouseenter', function() {
+                                            this.setAttribute('controls', '');
+                                        });
+                                        video.addEventListener('mouseleave', function() {
+                                            this.removeAttribute('controls');
+                                        });
+                                        video.addEventListener('ended', function() {
+                                            this.removeAttribute('autoplay');
+                                            this.load();
+                                        });
+                                    })();
+                                </script>
 
                                 <!-- Subtle hover overlay -->
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                             </div>
 
                             <!-- Decorative corner accents -->
